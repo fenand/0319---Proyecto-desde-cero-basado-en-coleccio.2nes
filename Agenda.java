@@ -64,4 +64,50 @@ public class Agenda
         }
         System.out.println();
     }
+    /**
+     * metodo Permita mostrar un listado ordenado de los objetos 
+     * en función de su edad  
+     */
+    public ArrayList<Contacto> ordenadoDeMayorAMenorPorEdad(ArrayList<Contacto> coleccion) {
+        ArrayList<Contacto> contactosConMayorEdad = new ArrayList<Contacto>();
+        int edadMaxima = 0;
+        int contador = 0;
+
+        if(coleccion.size() > 0) {
+            for(Contacto Contacto : coleccion) {
+                if(Contacto.obtenerEdad() > edadMaxima) {
+                    edadMaxima = Contacto.obtenerEdad();
+                }
+            }
+
+            while(contador < coleccion.size()) {
+                if(coleccion.get(contador).obtenerEdad() == edadMaxima) {
+                    contactosConMayorEdad.add(coleccion.get(contador));
+                    coleccion.remove(coleccion.get(contador));
+                    contador -= 1;
+                }
+                contador += 1;
+            }
+        }
+
+        return contactosConMayorEdad;
+    }
+    /**
+     * Ordena de mayor a menor edad los contactos y los muestra por pantalla.
+     */
+    public void contactosOrdenadosDeMayorAMenorEdad() {
+        ArrayList<Contacto> contactosOrdenadosDeMayorAMenorPorEdad = new ArrayList<Contacto>(); 
+        ArrayList<Contacto> copiaDeContactos = new ArrayList<Contacto>();
+
+        if(contactos.size() > 0) {
+            copiaDeContactos.addAll(contactos);
+            while(copiaDeContactos.size() != 0) {
+                contactosOrdenadosDeMayorAMenorPorEdad.addAll(ordenadoDeMayorAMenorPorEdad(copiaDeContactos));
+            }
+
+            for(Contacto Contacto : contactosOrdenadosDeMayorAMenorPorEdad) {
+                System.out.println(Contacto.getContactoCompleto());
+            }
+        }
+    }
 }
