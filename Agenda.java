@@ -28,4 +28,25 @@ public class Agenda
         contactos.add(new Contacto(nombre,telefono,direccion,edad));
 
     }
+    /**
+     * metodo para devolver el numero de contactos
+     */
+    public void getNumeroDeContactos()
+    {
+        System.out.println(contactos.size());  
+    }
+
+    /**
+     * Metodo para mostra la informacion de cada contacto por pantalla numerados
+     * 
+     */
+    public void mostrasContactos()
+    {
+        System.out.println("Lista de Contactos : ");
+
+        for(Contacto contactos : contactos) {
+            System.out.println(contactos.getContactoCompleto());
+        }
+        System.out.println();
+    }
 }

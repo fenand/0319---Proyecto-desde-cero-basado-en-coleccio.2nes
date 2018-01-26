@@ -91,4 +91,11 @@ public class Contacto
     {
         return direccion;  
     }
+    /**
+     * Return detalles contacto.
+     */
+    public String getContactoCompleto()
+    {
+        return "Nombre: "+ nombre +" Edad: " + edad + " Telefono: " + telefono + " Direccion: " + direccion ;
+    }
 }
