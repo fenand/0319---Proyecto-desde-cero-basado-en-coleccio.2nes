@@ -10,14 +10,15 @@ public class Agenda
 {
     //coleccion de contactos de la agenda
     private ArrayList<Contacto> contactos;
-
+    //numero identificador de cada contacto
+    private int id;
     /**
      * Constructor for objects of class paginasAmarillas
      */
     public Agenda()
     {
         contactos = new ArrayList<Contacto>();
-
+        this.id = 1;
     }
 
     /**
@@ -26,8 +27,17 @@ public class Agenda
     public void addContactos(String nombre, int telefono,String direccion,int edad)
     {
         contactos.add(new Contacto(nombre,telefono,direccion,edad));
-
+        id = id +1;
     }
+
+    /**
+     * metodo que devuelve el id del contacto
+     */
+    public int getId()
+    {
+        return id;
+    }
+
     /**
      * metodo para devolver el numero de contactos
      */
