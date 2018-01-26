@@ -21,7 +21,10 @@ public class Agenda
         this.id = 1;
     }
 
+    
     /**
+     * 
+     * 
      * Metodo para añadir contactos a las paginas amarillas
      */
     public void addContactos(String nombre, int telefono,String direccion,int edad)
