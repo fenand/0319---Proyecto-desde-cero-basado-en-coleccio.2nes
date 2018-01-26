@@ -18,7 +18,7 @@ public class Agenda
     public Agenda()
     {
         contactos = new ArrayList<Contacto>();
-        this.id = 1;
+        id = 1;
     }
 
     /**
@@ -28,7 +28,7 @@ public class Agenda
      */
     public void addContactos(String nombre, int telefono,String direccion,int edad)
     {
-        contactos.add(new Contacto(nombre,telefono,direccion,edad));
+        contactos.add(new Contacto(nombre,telefono,direccion,edad,id));
         id = id +1;
     }
 

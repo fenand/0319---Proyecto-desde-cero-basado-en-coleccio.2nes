@@ -15,16 +15,19 @@ public class Contacto
     private String direccion;
     //edad de los contactos
     private int edad;
+    //numero id
+    private int id;
 
     /**
      * Constructor for objects of class Agenda
      */
-    public Contacto(String nombre,int telefono,String direccion,int edad)
+    public Contacto(String nombre,int telefono,String direccion,int edad,int id)
     {
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
         this.edad = edad;
+        this.id=id;
 
     }
 
@@ -96,6 +99,6 @@ public class Contacto
      */
     public String getContactoCompleto()
     {
-        return "Nombre: "+ nombre +" Edad: " + edad + " Telefono: " + telefono + " Direccion: " + direccion ;
+        return "Nombre: "+ nombre +" Edad: " + edad + " Telefono: " + telefono + " Direccion: " + direccion + "Numero Id: "+ id ;
     }
 }
