@@ -157,5 +157,15 @@ public class Agenda
             }
         }
     }
-    
+
+    /**
+     * Modifica el nombre,telefono,direccion y edad de los contactos 
+     * mediante el id .
+     */
+    public void modificarContacto(int id,String nombre,int telefono, String direccion, int edad) {
+        contactos.get(id - 1).fijarNombre(nombre);
+        contactos.get(id - 1).fijarEdad(telefono);
+        contactos.get(id - 1).fijarDireccion(direccion);
+        contactos.get(id - 1).fijarEdad(edad);
+    }
 }
