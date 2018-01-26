@@ -1,33 +1,31 @@
-
+import java.util.ArrayList;
+import java.util.Iterator;   
 /**
- * Write a description of class Agenda here.
- * 
- * @author (your name) 
+ * Write a description of class paginasAmarillas here.
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class Agenda
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    //coleccion de contactos de la agenda
+    private ArrayList<Contacto> contactos;
 
     /**
-     * Constructor for objects of class Agenda
+     * Constructor for objects of class paginasAmarillas
      */
     public Agenda()
     {
-        // initialise instance variables
-        x = 0;
+        contactos = new ArrayList<Contacto>();
+
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * Metodo para añadir contactos a las paginas amarillas
      */
-    public int sampleMethod(int y)
+    public void addContactos(String nombre, int telefono,String direccion,int edad)
     {
-        // put your code here
-        return x + y;
+        contactos.add(new Contacto(nombre,telefono,direccion,edad));
+
     }
 }
