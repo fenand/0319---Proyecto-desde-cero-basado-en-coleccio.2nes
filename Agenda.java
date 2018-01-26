@@ -49,16 +49,18 @@ public class Agenda
         System.out.println(contactos.size());  
     }
 
+    
+    
     /**
-     * Metodo para mostra la informacion de cada contacto por pantalla numerados
-     * 
+     * Metodo para mostra la informacion de cada contacto por 
+     * pantalla numerados
      */
     public void mostrasContactos()
     {
         System.out.println("Lista de Contactos : ");
-
+        int contador = 1;
         for(Contacto contactos : contactos) {
-            System.out.println(contactos.getContactoCompleto());
+            System.out.println(contador +" "+ contactos.getContactoCompleto());
         }
         System.out.println();
     }
