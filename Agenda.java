@@ -168,4 +168,17 @@ public class Agenda
         contactos.get(id - 1).fijarDireccion(direccion);
         contactos.get(id - 1).fijarEdad(edad);
     }
+    /**
+     * Elimina los contactos que contengan el nombre del contacto
+     * introducido por el usuario por parametro String
+     */
+    public void removeContacto(String contacto) {
+        Iterator<Contacto> it = contactos.iterator();
+
+        while(it.hasNext()) {
+            if(it.next().obtenerNombre().contains(contacto)) {
+                it.remove();
+            }
+        }
+    }
 }
