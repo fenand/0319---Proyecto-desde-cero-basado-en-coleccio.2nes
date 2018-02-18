@@ -28,7 +28,7 @@ public class Contacto
         this.direccion = direccion;
         this.edad = edad;
         this.id=id;
-
+        
     }
 
     /**
@@ -94,6 +94,7 @@ public class Contacto
     {
         return direccion;  
     }
+
     /**
      * Return detalles contacto.
      */

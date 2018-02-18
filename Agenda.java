@@ -1,5 +1,11 @@
 import java.util.ArrayList;
-import java.util.Iterator;   
+import java.util.Iterator;  
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException; 
+import java.util.HashMap;
+import java.util.HashSet;
+
 /**
  * Write a description of class paginasAmarillas here.
  *
@@ -13,18 +19,45 @@ public class Agenda
     //numero identificador de cada contacto
     private int id;
     /**
-     * Constructor for objects of class paginasAmarillas
+     * A partir del código terminado de la actividad 0319, modifica el constructor 
+     * de la segunda clase para que admita un parámetro de tipo String. 
+     * A través de ese parámetro podremos indicarle el nombre de un archivo 
+     * existente en la misma carpeta del proyecto de donde obtener los datos 
+     * para crear todos los objetos que van a figurar en la colección 
+     * teniendo en cuenta que el formato de dicho archivo a leer 
+     * debe ser como el que se muestra a continuación 
+     * pero adaptado a los datos de los objetos de tu colección
      */
-    public Agenda()
+    public Agenda(String nombreDelTxtDeContactos)
     {
         contactos = new ArrayList<Contacto>();
         id = 1;
+        try {
+            File archivo = new File(nombreDelTxtDeContactos + ".txt");
+            Scanner sc = new Scanner(archivo);
+            while (sc.hasNextLine()) {
+                //System.out.println(sc.nextLine());
+                //creamos un array de String y lo separamos con el metodo split 
+                //por espacios y #
+                String[] arrayStrings  = sc.nextLine().split(" # ");
+
+                //luego vamos a buscar el cada cadena de txt el tipo de dato y añadirlo
+                //al array
+                addContactos(arrayStrings[0],Integer.parseInt(arrayStrings[1]),arrayStrings[2],Integer.parseInt(arrayStrings[3]));
+
+            }
+            sc.close();
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
      * 
      * 
-     * Metodo para añadir contactos a las paginas amarillas
+     * Metodo para añadir contactos a la agenda
      */
     public void addContactos(String nombre, int telefono,String direccion,int edad)
     {
@@ -58,6 +91,7 @@ public class Agenda
         int contador = 1;
         for(Contacto contactos : contactos) {
             System.out.println(contador +" "+ contactos.getContactoCompleto());
+            contador++;
         }
         System.out.println();
     }
@@ -168,6 +202,7 @@ public class Agenda
         contactos.get(id - 1).fijarDireccion(direccion);
         contactos.get(id - 1).fijarEdad(edad);
     }
+
     /**
      * Elimina los contactos que contengan el nombre del contacto
      * introducido por el usuario por parametro String
