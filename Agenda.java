@@ -216,4 +216,30 @@ public class Agenda
             }
         }
     }
+
+    public void mostrarContactosDivididosPorDirecciones(){
+        HashSet<String> direccion = new HashSet<>();
+        for(Contacto direccionContactos : contactos){
+            direccion.add(direccionContactos.obtenerDireccion());
+        }
+
+        for(String direccionContacto: direccion){
+            System.out.println(direccionContacto + " :");
+            for(int i = 0 ; i<contactos.size();i++){
+                if(contactos.get(i).obtenerDireccion().equals(direccionContacto)){
+                  System.out.println(contactos.get(i).getContactoCompleto());  
+
+                }
+            }
+            System.out.println();
+            // for(Contacto direccionContactos : contactos){
+            // if(direccionContactos.obtenerDireccion() == direccionContacto){
+            // System.out.println(direccionContactos.getContactoCompleto());
+            // }
+
+            // }
+
+        }
+
+    }
 }
