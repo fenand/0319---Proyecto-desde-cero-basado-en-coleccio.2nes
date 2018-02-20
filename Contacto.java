@@ -100,6 +100,6 @@ public class Contacto
      */
     public String getContactoCompleto()
     {
-        return "Nombre: "+ nombre +" Edad: " + edad + " Telefono: " + telefono + " Direccion: " + direccion + "Numero Id: "+ id ;
+        return "Nombre: "+ nombre +" Edad: " + edad + " Telefono: " + telefono + " Direccion: " + direccion + " Numero Id: "+ id ;
     }
 }

@@ -1,10 +1,15 @@
-import java.util.ArrayList;
-import java.util.Iterator;  
-import java.util.Scanner;
+// import java.util.ArrayList;
+// import java.util.Iterator;  
+// import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException; 
-import java.util.HashMap;
-import java.util.HashSet;
+// import java.util.HashMap;
+// import java.util.HashSet;
+import java.util.*;
+// import java.util.Date;
+// import java.util.List;
+// import java.util.Collections;
+// import java.util.Comparator;
 
 /**
  * Write a description of class paginasAmarillas here.
@@ -217,29 +222,71 @@ public class Agenda
         }
     }
 
-    public void mostrarContactosDivididosPorDirecciones(){
+    public void mostrarContactosDivididosPorDireccionesOrdenados(){
         HashSet<String> direccion = new HashSet<>();
         for(Contacto direccionContactos : contactos){
             direccion.add(direccionContactos.obtenerDireccion());
         }
-
-        for(String direccionContacto: direccion){
+        
+        for (String direccionContacto : direccion){
             System.out.println(direccionContacto + " :");
-            for(int i = 0 ; i<contactos.size();i++){
-                if(contactos.get(i).obtenerDireccion().equals(direccionContacto)){
-                  System.out.println(contactos.get(i).getContactoCompleto());  
-
-                }
-            }
+            ordenarPorNombre(direccionContacto);
             System.out.println();
-            // for(Contacto direccionContactos : contactos){
-            // if(direccionContactos.obtenerDireccion() == direccionContacto){
-            // System.out.println(direccionContactos.getContactoCompleto());
-            // }
+        }
+        
 
-            // }
+        // // for(String direccionContacto: direccion){
+            // // System.out.println(direccionContacto + " :");
+            // // for(int i = 0 ; i<contactos.size
+            // // ();i++){
+                // // if(contactos.get(i).obtenerDireccion().equals(direccionContacto)){
+                    // // System.out.println(contactos.get(i).getContactoCompleto());  
 
+                // // }
+            // // }
+            // // System.out.println();
+            // // // for(Contacto direccionContactos : contactos){
+            // // // if(direccionContactos.obtenerDireccion() == direccionContacto){
+            // // // System.out.println(direccionContactos.getContactoCompleto());
+            // // // }
+
+            // // // }
+
+        // // }
+
+    }
+
+    public void ordenarPorNombre(String direccion){
+        ArrayList<Contacto> direccionContactosNueva = new ArrayList<>();
+
+        for(Contacto contacto : contactos ){
+            if(contacto.obtenerDireccion().equals(direccion)){
+                direccionContactosNueva.add(contacto);
+            }
         }
 
+        String direccionMasPequeña = "";
+        Contacto contactoNuevo = null;
+        int posicionDelContactoMenor = 0;
+        if(direccionContactosNueva.size()>0){
+            for(int i = 0 ; i<direccionContactosNueva.size()-1 ; i++){
+                contactoNuevo = direccionContactosNueva.get(i);
+                posicionDelContactoMenor = i;
+                for(int j = i + 1 ; j<direccionContactosNueva.size(); j++){
+                    if(contactoNuevo.obtenerNombre().compareToIgnoreCase(direccionContactosNueva.get(j).obtenerNombre()) > 0){
+                        contactoNuevo = direccionContactosNueva.get(j);
+                        posicionDelContactoMenor = j;
+                    }
+                }
+                if(posicionDelContactoMenor !=i){
+                    direccionContactosNueva.add(i,direccionContactosNueva.get(posicionDelContactoMenor));
+                    direccionContactosNueva.remove(posicionDelContactoMenor+1);
+                }
+            }
+        }
+
+        for(Contacto ordenado : direccionContactosNueva){
+            System.out.println(ordenado.getContactoCompleto());     
+        }
     }
 }
